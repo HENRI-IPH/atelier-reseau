@@ -35,18 +35,18 @@ sur la ligne `inet` se trouvent l'**adresse IP** et le **masque** (après le `/`
 
 | Information        | Valeur pour le client |
 | ------------------ | --------------------- |
-| Nom de l'interface | …                     |
-| Adresse MAC        | …                     |
-| Adresse IP         | …                     |
-| Masque (notation `/`) | …                  |
-| Adresse du réseau  | …                     |
+| Nom de l'interface | eth0                  |
+| Adresse MAC        | c2:89:99:86:36:c5                |
+| Adresse IP         |172.20.1.50                |
+| Masque (notation `/`) | /24            |
+| Adresse du réseau  | 172.20.1.0                |
 
 **Question A.2.** Le masque est `/24`. Combien de machines différentes peut-on placer dans ce réseau ?
 (Indice : le dernier nombre de l'adresse peut varier de 0 à 255, mais 2 valeurs sont réservées.)
 
 > 💬 **Votre réponse :**
 >
-> _Remplacez ce texte par votre réponse._
+> 254
 
 ### Étape 2 — Ma passerelle
 
@@ -65,7 +65,7 @@ ip route
 
 > 💬 **Votre réponse :**
 >
-> _Remplacez ce texte par votre réponse._
+> 172.20.1.254 // Routeur
 
 ---
 
@@ -104,7 +104,7 @@ eu besoin de cette information **avant** de pouvoir envoyer le ping ?
 
 > 💬 **Votre réponse :**
 >
-> _Remplacez ce texte par votre réponse._
+> Une ligne affichant l'adresse Ip et l'adresse Mac d'une autre machine. Le ping permet d'établir une communication avec une machine dans un réseau raison pour laquelle c'est important de le faire
 
 ### Étape 5 — Joindre une machine d'un autre réseau
 
@@ -121,7 +121,7 @@ a-t-il appris la MAC ? Expliquez pourquoi, en vous aidant de la fiche théorique
 
 > 💬 **Votre réponse :**
 >
-> _Remplacez ce texte par votre réponse._
+> Le client prend l'adresse Mac du routeur car ce dernier joue le rôle d'intermediaire entre en le serveur Web et le client
 
 ---
 
@@ -141,7 +141,7 @@ cette différence ? (Indice : chaque routeur traversé diminue le TTL de 1.)
 
 > 💬 **Votre réponse :**
 >
-> _Remplacez ce texte par votre réponse._
+> En passant par un routeur , le TTL est incrémenté d'1 valeur 
 
 ### Étape 7 — traceroute
 
@@ -158,7 +158,7 @@ Dessinez (en texte) le chemin suivi : `client → … → internet`.
 
 > 💬 **Votre réponse :**
 >
-> _Remplacez ce texte par votre réponse._
+> il y eu 2 sauts . Client->routeur->internet
 
 ### Étape 8 — Le lab est isolé
 
@@ -172,7 +172,7 @@ ping -c 2 -W 2 8.8.8.8
 
 > 💬 **Votre réponse :**
 >
-> _Remplacez ce texte par votre réponse._
+> Le ping ne fonctionne pas , car le routeur n'arrive pas à atteindre les serveurs Google cla est problablement dû à une configuration du Nat du routeur 
 
 ---
 
@@ -182,9 +182,10 @@ ping -c 2 -W 2 8.8.8.8
 
 | Notion        | Explication en une phrase |
 | ------------- | ------------------------- |
-| Adresse IP    | …                         |
-| Adresse MAC   | …                         |
-| Passerelle    | …                         |
+| Adresse IP    | Identifiant logique d'une machine sur un réseau   
+                |
+| Adresse MAC   | 	Identifiant physique gravé dans la carte résea                     |
+| Passerelle    |                      |
 | ARP           | …                         |
 | TTL           | …                         |
 
@@ -193,7 +194,7 @@ dans la trame la MAC de `172.20.0.10`. »
 
 > 💬 **Votre réponse :**
 >
-> _Remplacez ce texte par votre réponse._
+> _Vrai._
 
 ---
 
