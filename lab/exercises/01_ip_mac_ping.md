@@ -185,9 +185,9 @@ ping -c 2 -W 2 8.8.8.8
 | Adresse IP    | Identifiant logique d'une machine sur un réseau   
                 |
 | Adresse MAC   | 	Identifiant physique gravé dans la carte résea                     |
-| Passerelle    |                      |
-| ARP           | …                         |
-| TTL           | …                         |
+| Passerelle    | La machine à qui on confie tout paquet destiné à un AUTRE réseau                     |
+| ARP           | Protocole qui répond à la question « Quelle est l'adresse MAC de l'IP x.x.x.x ? »                       |
+| TTL           | Compteur dans chaque paquet IP, diminué de 1 à chaque routeur traversé.                     |
 
 **Question D.2.** Vrai ou faux ? Justifiez : « Pour envoyer un paquet à `172.20.0.10`, le client met
 dans la trame la MAC de `172.20.0.10`. »
