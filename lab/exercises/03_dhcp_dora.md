@@ -47,7 +47,9 @@ ping -c 2 172.20.1.254
 
 > 💬 **Votre réponse :**
 >
-> _Remplacez ce texte par votre réponse._
+> Le message obtenu est Network is unreachable.
+
+Cela signifie que le client ne possède pas d'adresse IP valide ni de route réseau lui permettant de communiquer avec la passerelle 172.20.1.254. L'interface réseau eth0 est active, mais aucune configuration IP n'a été attribuée au client.
 
 ---
 
@@ -89,7 +91,14 @@ Qui vous l'a donnée ?
 
 > 💬 **Votre réponse :**
 >
-> _Remplacez ce texte par votre réponse._
+> DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 7
+DHCPOFFER of 172.20.1.155 from 172.20.1.2
+DHCPREQUEST for 172.20.1.155 on eth0 to 255.255.255.255 port 67
+DHCPACK of 172.20.1.155 from 172.20.1.2
+bound to 172.20.1.155 -- renewal in 18587 seconds.
+
+L'adresse IP obtenue est : 172.20.1.155
+Cette adresse nous a été donnée par le serveur : 172.20.1.2
 
 ### Étape 5 — Analyser les 4 messages
 
@@ -112,26 +121,26 @@ Qui vous l'a donnée ?
 
 | Étape       | IP source | IP destination    | MAC destination   | Type DHCP (opt 53) | Transaction ID |
 | ----------- | --------- | ----------------- | ----------------- | ------------------ | -------------- |
-| 1. Discover | `0.0.0.0` | `255.255.255.255` | …                 | …                  | …              |
-| 2. Offer    | …         | …                 | …                 | …                  | …              |
-| 3. Request  | …         | …                 | …                 | …                  | …              |
-| 4. ACK      | …         | …                 | …                 | …                  | …              |
+| 1. Discover | `0.0.0.0` | `255.255.255.255` | ff:ff:ff:ff:ff:ff | 1                  | 0xa8b85d3d     |
+| 2. Offer    | 172.20.1.2|   172.20.1.155    |  22:87:35:7d:c0:58| 2                  | 0xa8b85d3d     |
+| 3. Request  | 0.0.0.0   | 255.255.255.255   | ff:ff:ff:ff:ff:ff | 3                  | 0xa8b85d3d     |
+| 4. ACK      | 172.20.1.2| 172.20.1.155      | 22:87:35:7d:c0:58 | 4                  | 0xa8b85d3d     |
 
 **Question B.3.** Dans le paquet **Offer** (n°2), relevez la configuration proposée par le serveur :
 
 | Information              | Option DHCP | Valeur |
 | ------------------------ | ----------- | ------ |
-| Adresse IP proposée      | (yiaddr)    | …      |
-| Masque de sous-réseau    | 1           | …      |
-| Passerelle (routeur)     | 3           | …      |
-| Serveurs DNS             | 6           | …      |
-| Durée du bail (secondes) | 51          | …      |
+| Adresse IP proposée      | (yiaddr)    | 172.20.1.155    |
+| Masque de sous-réseau    | 1           | 255.255.255.0   |
+| Passerelle (routeur)     | 3           | 172.20.1.254    |
+| Serveurs DNS             | 6           | 8.8.8.8,1.1.1.1|
+| Durée du bail (secondes) | 51          | 43200   |
 
 Convertissez la durée du bail en heures.
 
 > 💬 **Votre réponse (conversion) :**
 >
-> _Remplacez ce texte par votre réponse._
+> En heure, la durée de bail équivaut à 12h
 
 ---
 
